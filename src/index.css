@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Source+Han+Sans+SC:wght@400;500;600;700;800;900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.0/400.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.0/500.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.0/600.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.0/700.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.0/800.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.0/900.css');
+
+/* Chinese Handwriting Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Long+Cang&family=Liu+Jian+Mao+Cao&family=Zhi+Mang+Xing&display=swap');
+
+/* Custom Font - QingNiao HuaGuang JianMeiHei */
+@font-face {
+  font-family: 'QingNiao HuaGuang';
+  src: url('/QingNiaoHuaGuangJianMeiHei.ttf?v=2') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Now Edu Brand Color System */
+    --brand-yellow: 53 95% 66%;        /* #FDDE55 - Solar Lemon */
+    --brand-blue: 192 95% 42%;         /* #03AED2 - Aqua Azure */
+    --brand-white: 0 0% 100%;          /* #FFFFFF - Pure White */
+    --brand-grey: 0 0% 97%;            /* #F8F8F8 - Soft Grey */
+    --brand-neutral-grey: 0 0% 90%;    /* #E6E6E6 - Neutral Divider Grey */
+    --brand-text-dark: 0 0% 20%;       /* #333333 - Dark Text */
+    --brand-blue-hover: 192 85% 37%;   /* #0293B3 - Blue Hover */
+    --brand-yellow-light: 53 100% 89%; /* #FFF6C5 - Light Yellow */
+    --brand-blue-light: 191 97% 94%;   /* #E0F9FC - Light Blue */
+
+    /* Updated system colors using Now Edu brand */
+    --background: var(--brand-white);
+    --foreground: var(--brand-text-dark);
+
+    --card: var(--brand-white);
+    --card-foreground: var(--brand-text-dark);
+
+    --popover: var(--brand-white);
+    --popover-foreground: var(--brand-text-dark);
+
+    /* Primary: Now Edu Blue */
+    --primary: var(--brand-blue);
+    --primary-foreground: var(--brand-white);
+    --primary-light: var(--brand-blue-light);
+    --primary-dark: var(--brand-blue-hover);
+
+    /* Secondary: Now Edu Yellow */
+    --secondary: var(--brand-yellow);
+    --secondary-foreground: var(--brand-text-dark);
+
+    --muted: var(--brand-grey);
+    --muted-foreground: var(--brand-text-dark);
+
+    --accent: var(--brand-yellow);
+    --accent-foreground: var(--brand-text-dark);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--brand-white);
+
+    --border: var(--brand-neutral-grey);
+    --input: var(--brand-neutral-grey);
+    --ring: var(--brand-blue);
+
+    --radius: 0.75rem;
+    
+    /* Now Edu Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-blue-hover)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-yellow)), hsl(var(--brand-yellow-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-blue-light)), hsl(var(--brand-white)));
+    --gradient-yellow-warm: linear-gradient(135deg, hsl(var(--brand-yellow)), hsl(var(--brand-yellow-light)));
+    --gradient-blue-cool: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-blue-light)));
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 25% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 200 25% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 200 25% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 180 45% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 180 45% 70%;
+    --primary-dark: 180 50% 40%;
+
+    --secondary: 25 75% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 200 25% 15%;
+    --muted-foreground: 200 10% 65%;
+
+    --accent: 25 95% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 180 45% 55%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-blue-hover)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-yellow)), hsl(var(--brand-yellow-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 58%), hsl(25 95% 68%));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom font utilities */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Chinese fonts */
+.font-chinese-modern {
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', 'Arial Unicode MS', sans-serif;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+}
+
+.font-chinese-elegant {
+  font-family: 'Source Han Sans SC', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', '冬青黑体简体中文', 'Microsoft YaHei', '微软雅黑', sans-serif;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.02em;
+}
+
+.font-chinese-bold {
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', 'STHeiti', '华文黑体', sans-serif;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Custom animations for Hero section */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes float-delayed {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) rotate(90deg);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translateY(0px) rotate(180deg);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide-up-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 1s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 左右滑入动画 */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* 粒子动画 */
+@keyframes particle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation: particle linear infinite;
+}
+
+/* 发光效果已移除 */
+
+/* 防止动画重复触发 */
+.animate-fade-in,
+.animate-fade-in-up,
+.animate-fade-in-delayed {
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+/* 图片稳定性 */
+.animate-fade-in img,
+img {
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* 移除透明背景的格子效果 */
+  background: transparent;
+}
+
+/* 防止 framer-motion 动画跳动 */
+[data-framer-motion] img {
+  position: relative;
+  z-index: 1;
+  image-rendering: crisp-edges;
+  -webkit-image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* 确保motion容器稳定 */
+[data-framer-motion] {
+  transform-style: preserve-3d;
+}
+
+/* 防止滚动时的重绘 */
+.motion-container {
+  position: relative;
+  isolation: isolate;
+}
+
+.motion-container img {
+  position: relative;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 专门移除学生照片的格子背景 */
+img[alt*="学生"] img,
+img[src*="Top Student"] {
+  background: white !important;
+  background-color: white !important;
+  box-shadow: none !important;
+}
+
+/* 移除所有图片的透明格子背景 */
+img {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* 确保PNG透明图片没有格子背景 */
+img[src$=".png"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  /* 移除浏览器默认的透明背景格子 */
+  -webkit-background-composite: source-over !important;
+  background-blend-mode: normal !important;
+}
+
+/* 彻底移除透明背景的checkerboard模式 */
+* {
+  image-rendering: auto !important;
+}
+
+/* Year Loader 动画 */
+@keyframes yearFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+}
+
+@keyframes yearPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes yearSlideUp {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Artistic text orientations */
+.writing-mode-vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.writing-mode-vertical-lr {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
+/* Enhanced gradient animation for year loader */
+@keyframes gradient-shift-artistic {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 100% 75%;
+  }
+  75% {
+    background-position: 0% 75%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-year-float {
+  animation: yearFloat 4s ease-in-out infinite;
+}
+
+.animate-year-pulse {
+  animation: yearPulse 2s ease-in-out infinite;
+}
+
+.animate-year-slide-up {
+  animation: yearSlideUp 0.5s ease-out;
+}
+
+.animate-gradient-artistic {
+  background-size: 300% 300%;
+  animation: gradient-shift-artistic 8s ease infinite;
+}
+
+/* Circle mask transition */
+@keyframes circle-expand {
+  from {
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
+.animate-circle-expand {
+  animation: circle-expand 1s ease-in-out forwards;
+}
+
+/* 针对学生证件照的特殊处理 */
+section img,
+.group img {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* 3D 透视效果 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* 科目卡片3D变换 */
+.subject-card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+/* 滚动锁定时的样式 */
+.scroll-locked {
+  overflow: hidden !important;
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
