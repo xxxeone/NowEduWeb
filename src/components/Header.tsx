@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/world-edu-logo.png";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -13,11 +13,11 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#fdde55]/95 backdrop-blur-sm shadow-md">
-      <div className="container max-w-[1200px] mx-auto px-6 md:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="container max-w-[1200px] mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src={logo} alt="Now Edu" className="h-10 w-auto" />
+            <img src={logo} alt="World Edu" className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
@@ -71,56 +71,57 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-800"
+            className="md:hidden p-3 text-gray-800 active:bg-yellow-400/30 rounded-lg transition-colors"
+            aria-label="菜单"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#fdde55] border-t border-yellow-600/20 shadow-lg">
-          <nav className="container max-w-[1200px] mx-auto px-6 py-6 flex flex-col gap-4">
+        <div className="md:hidden bg-[#fdde55] border-t border-yellow-600/20 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <nav className="container max-w-[1200px] mx-auto px-4 py-4 flex flex-col gap-2">
             <button
               onClick={() => scrollToSection("features")}
-              className="text-left text-gray-800 hover:text-[#03aed2] font-semibold transition-colors py-2"
+              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
             >
               课程特色
             </button>
             <button
               onClick={() => scrollToSection("teachers")}
-              className="text-left text-gray-800 hover:text-[#03aed2] font-semibold transition-colors py-2"
+              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
             >
               师资团队
             </button>
             <button
               onClick={() => scrollToSection("subjects")}
-              className="text-left text-gray-800 hover:text-[#03aed2] font-semibold transition-colors py-2"
+              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
             >
               学科课程
             </button>
             <button
               onClick={() => scrollToSection("data-speak")}
-              className="text-left text-gray-800 hover:text-[#03aed2] font-semibold transition-colors py-2"
+              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
             >
               数据说话
             </button>
             <button
               onClick={() => scrollToSection("testimonials")}
-              className="text-left text-gray-800 hover:text-[#03aed2] font-semibold transition-colors py-2"
+              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
             >
               学生评价
             </button>
             <button
               onClick={() => scrollToSection("promise")}
-              className="text-left text-gray-800 hover:text-[#03aed2] font-semibold transition-colors py-2"
+              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
             >
               家长承诺
             </button>
             <Button
               onClick={() => window.open('https://wa.link/c5uaq8', '_blank')}
-              className="bg-[#03aed2] hover:bg-[#0396b8] text-white font-bold rounded-full py-3 mt-2"
+              className="bg-[#03aed2] active:bg-[#0396b8] text-white font-bold rounded-full py-4 mt-2 text-lg shadow-lg active:shadow-xl active:scale-95 transition-all"
             >
               立即报名
             </Button>

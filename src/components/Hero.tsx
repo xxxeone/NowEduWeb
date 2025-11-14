@@ -61,9 +61,9 @@ const Hero = () => {
   }, [typingText, isDeleting, wordIndex, prefersReducedMotion, words, pauseTime, typingSpeed, deletingSpeed]);
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-white">
-      <div className="relative z-10 container max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-white pt-16 md:pt-0">
+      <div className="relative z-10 container max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
           <motion.div
             className="hidden lg:block lg:col-span-2 xl:col-span-3"
             initial={{ opacity: 0, x: prefersReducedMotion ? 0 : -100, rotate: -15 }}
@@ -92,16 +92,16 @@ const Hero = () => {
 
           <div className="lg:col-span-8 xl:col-span-6 text-center">
             <motion.div
-              className="inline-block px-8 py-4 bg-white rounded-full mb-6 shadow-lg border-2 border-now-teal"
+              className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white rounded-full mb-4 sm:mb-6 shadow-lg border-2 border-now-teal"
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="text-2xl md:text-3xl lg:text-4xl text-now-teal font-black tracking-wide">NowEdu Online</span>
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-now-teal font-black tracking-wide">World Edu</span>
             </motion.div>
 
             <motion.p
-              className="text-base md:text-lg text-now-navy/80 mb-6 font-medium"
+              className="text-sm sm:text-base md:text-lg text-now-navy/80 mb-4 sm:mb-6 font-medium px-4"
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
@@ -110,12 +110,12 @@ const Hero = () => {
             </motion.p>
 
             <motion.div
-              className="mb-8"
+              className="mb-6 sm:mb-8 px-2"
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.05] text-now-teal">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.05] text-now-teal">
                 高效学习
                 <br />
                 <span className="relative inline-block mt-2">
@@ -135,18 +135,18 @@ const Hero = () => {
             </motion.div>
 
             <motion.p
-              className="text-base md:text-lg lg:text-xl text-now-navy/80 mb-10 max-w-2xl mx-auto leading-relaxed"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-now-navy/80 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed px-4"
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             >
-              NOW EDU 让你在最短时间内掌握学习方法，轻松提升成绩。
-              <br />
-              专业团队 · 科学记忆 · 高效课堂 · 成果显著
+              World Edu 让你在最短时间内掌握学习方法，轻松提升成绩。
+              <br className="hidden sm:block" />
+              <span className="text-sm sm:text-base">专业团队 · 科学记忆 · 高效课堂 · 成果显著</span>
             </motion.p>
 
             <motion.div
-              className="flex justify-center"
+              className="flex justify-center px-4"
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
@@ -154,7 +154,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 onClick={() => window.open('https://wa.link/c5uaq8', '_blank')}
-                className="group bg-white hover:bg-white/90 text-now-teal font-black text-lg md:text-xl px-14 py-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-now-teal"
+                className="group bg-white active:bg-white/90 text-now-teal font-black text-base sm:text-lg md:text-xl px-10 sm:px-14 py-6 sm:py-8 rounded-full shadow-lg active:shadow-xl transition-all duration-300 active:scale-95 border-2 border-now-teal w-full sm:w-auto"
               >
                 立即报名
               </Button>
