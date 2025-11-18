@@ -148,7 +148,7 @@ const AboutUs = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
-                用数据说话
+                用成绩说话
               </h2>
               <p className="text-xl text-gray-400">Results Speak Loudest</p>
             </motion.div>
@@ -177,87 +177,6 @@ const AboutUs = () => {
                     <div className="text-lg text-gray-400 font-medium">
                       {stat.label}
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us - Modern Card Grid */}
-        <section className="py-20 md:py-32 bg-white">
-          <div className="container mx-auto px-4 max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                为什么选择我们
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                专业团队 · 创新方法 · 卓越成果
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Award,
-                  title: "14年专业沉淀",
-                  description: "深耕教育领域，累积丰富教学经验与成功案例",
-                  color: "from-blue-500 to-cyan-500"
-                },
-                {
-                  icon: Users,
-                  title: "精英师资团队",
-                  description: "每位老师均经严格筛选，持续专业培训",
-                  color: "from-purple-500 to-pink-500"
-                },
-                {
-                  icon: Zap,
-                  title: "独家高效记忆法",
-                  description: "创新学习方法，让知识记得更快更牢",
-                  color: "from-orange-500 to-red-500"
-                },
-                {
-                  icon: TrendingUp,
-                  title: "显著提分效果",
-                  description: "超过1000科A+，见证学生成长进步",
-                  color: "from-green-500 to-emerald-500"
-                },
-                {
-                  icon: Heart,
-                  title: "个性化教学",
-                  description: "因材施教，定制专属学习成长方案",
-                  color: "from-pink-500 to-rose-500"
-                },
-                {
-                  icon: Shield,
-                  title: "全科目覆盖",
-                  description: "涵盖SPM所有主要科目，一站式学习",
-                  color: "from-indigo-500 to-blue-500"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"
-                    style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
-                  ></div>
-                  <div className="relative p-8 bg-white border-2 border-gray-100 rounded-2xl hover:border-gray-200 hover:shadow-2xl transition-all duration-300">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <item.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}

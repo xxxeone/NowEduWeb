@@ -25,12 +25,21 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link
-              to="/about-us"
-              className="font-semibold text-gray-800 hover:text-[#03aed2] transition-colors"
-            >
-              关于我们
-            </Link>
+            {!isHomePage ? (
+              <Link
+                to="/"
+                className="font-semibold text-gray-800 hover:text-[#03aed2] transition-colors"
+              >
+                首页
+              </Link>
+            ) : (
+              <Link
+                to="/about-us"
+                className="font-semibold text-gray-800 hover:text-[#03aed2] transition-colors"
+              >
+                关于我们
+              </Link>
+            )}
             {isHomePage && (
               <>
                 <button
@@ -96,13 +105,23 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#fdde55] border-t border-yellow-600/20 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
           <nav className="container max-w-[1200px] mx-auto px-4 py-4 flex flex-col gap-2">
-            <Link
-              to="/about-us"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
-            >
-              关于我们
-            </Link>
+            {!isHomePage ? (
+              <Link
+                to="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
+              >
+                首页
+              </Link>
+            ) : (
+              <Link
+                to="/about-us"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-left text-gray-800 active:text-[#03aed2] font-semibold transition-colors py-4 px-2 active:bg-yellow-400/30 rounded-lg text-lg"
+              >
+                关于我们
+              </Link>
+            )}
             {isHomePage && (
               <>
                 <button

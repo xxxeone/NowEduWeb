@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { IntroLoader } from "@/components/IntroLoader";
 import { useIntroLoader } from "@/hooks/useIntroLoader";
+import PromoPopup from "@/components/PromoPopup";
+import BottomPromoPopup from "@/components/BottomPromoPopup";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
@@ -24,6 +26,8 @@ const App = () => {
         <Toaster />
         <Sonner />
         {showIntro && <IntroLoader onFinish={finish} />}
+        <PromoPopup />
+        <BottomPromoPopup />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
