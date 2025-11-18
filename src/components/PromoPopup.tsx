@@ -12,15 +12,51 @@ const PromoPopup = () => {
       return;
     }
 
-    const hasSeenPopup = sessionStorage.getItem('worldedu_promo_seen');
+    // Check popup display rules
+    const lastShown = localStorage.getItem('worldedu_promo_last_shown');
+    const visitCount = parseInt(localStorage.getItem('worldedu_visit_count') || '0');
+    const dismissCount = parseInt(localStorage.getItem('worldedu_promo_dismiss_count') || '0');
     
-    // In dev mode, always show popup for testing
+    // Update visit count
+    localStorage.setItem('worldedu_visit_count', (visitCount + 1).toString());
+    
+    // In dev mode, always show for testing
     const isDev = import.meta.env.DEV;
     
-    if (isDev || !hasSeenPopup) {
+    if (isDev) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 6000);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+
+    // Display logic:
+    // 1. Show on first visit
+    // 2. Show again after 24 hours if dismissed less than 3 times
+    // 3. Show every 3 visits after initial dismissal
+    const now = Date.now();
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+    
+    let shouldShow = false;
+    
+    if (!lastShown) {
+      // First time visitor
+      shouldShow = true;
+    } else if (dismissCount < 3) {
+      // Dismissed less than 3 times, show after 24 hours
+      const timeSinceLastShown = now - parseInt(lastShown);
+      shouldShow = timeSinceLastShown >= twentyFourHours;
+    } else if (visitCount % 3 === 0) {
+      // After 3 dismissals, show every 3rd visit
+      const timeSinceLastShown = now - parseInt(lastShown);
+      shouldShow = timeSinceLastShown >= twentyFourHours;
+    }
+    
+    if (shouldShow) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        localStorage.setItem('worldedu_promo_last_shown', now.toString());
+      }, 6000); // Show after 6 seconds
 
       return () => clearTimeout(timer);
     }
@@ -28,7 +64,8 @@ const PromoPopup = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem('worldedu_promo_seen', 'true');
+    const dismissCount = parseInt(localStorage.getItem('worldedu_promo_dismiss_count') || '0');
+    localStorage.setItem('worldedu_promo_dismiss_count', (dismissCount + 1).toString());
   };
 
   const handleEnroll = () => {

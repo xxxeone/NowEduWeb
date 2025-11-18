@@ -12,12 +12,31 @@ const BottomPromoPopup = () => {
       return;
     }
 
-    const hasSeenBottomPopup = sessionStorage.getItem('worldedu_bottom_promo_seen');
+    // Check popup display rules
+    const lastShown = localStorage.getItem('worldedu_bottom_promo_last_shown');
+    const dismissCount = parseInt(localStorage.getItem('worldedu_bottom_promo_dismiss_count') || '0');
     
     // In dev mode, always enable for testing
     const isDev = import.meta.env.DEV;
     
-    if (isDev || !hasSeenBottomPopup) {
+    // Display logic:
+    // 1. Show on scroll to bottom if not shown in last 24 hours
+    // 2. After 2 dismissals, reduce frequency to 48 hours
+    const now = Date.now();
+    const cooldownPeriod = dismissCount >= 2 ? 48 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
+    
+    let shouldEnable = false;
+    
+    if (isDev) {
+      shouldEnable = true;
+    } else if (!lastShown) {
+      shouldEnable = true;
+    } else {
+      const timeSinceLastShown = now - parseInt(lastShown);
+      shouldEnable = timeSinceLastShown >= cooldownPeriod;
+    }
+    
+    if (shouldEnable) {
       const handleScroll = () => {
         const scrollTop = window.scrollY;
         const windowHeight = window.innerHeight;
@@ -26,6 +45,7 @@ const BottomPromoPopup = () => {
         // Check if user scrolled to bottom (within 200px)
         if (scrollTop + windowHeight >= docHeight - 200) {
           setIsOpen(true);
+          localStorage.setItem('worldedu_bottom_promo_last_shown', now.toString());
           window.removeEventListener('scroll', handleScroll);
         }
       };
@@ -37,7 +57,8 @@ const BottomPromoPopup = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem('worldedu_bottom_promo_seen', 'true');
+    const dismissCount = parseInt(localStorage.getItem('worldedu_bottom_promo_dismiss_count') || '0');
+    localStorage.setItem('worldedu_bottom_promo_dismiss_count', (dismissCount + 1).toString());
   };
 
   const handleEnroll = () => {
