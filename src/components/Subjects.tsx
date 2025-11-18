@@ -1,4 +1,4 @@
-import { BookOpen, Globe, Calculator, History, Languages, Briefcase, Plus } from "lucide-react";
+import { BookOpen, Globe, Calculator, History, Languages, Briefcase, Plus, Atom } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -44,6 +44,11 @@ const Subjects = () => {
       icon: Plus, 
       code: "附加数学", 
       name: "Add Math"
+    },
+    { 
+      icon: Atom, 
+      code: "科学", 
+      name: "Science"
     },
     { 
       icon: Briefcase, 

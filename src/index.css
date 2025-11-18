@@ -577,3 +577,109 @@ section img,
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
+
+/* ===== IntroLoader Animations ===== */
+
+/* Scroll lock for intro loader */
+html[data-lock="true"] {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Typewriter caret blink */
+@keyframes intro-caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.intro-caret {
+  animation: intro-caret-blink 1s step-end infinite;
+}
+
+/* Dot pulse animation */
+@keyframes intro-dot-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.intro-dot-pulse {
+  animation: intro-dot-pulse 1.4s ease-in-out infinite;
+}
+
+/* Fade in/out animations */
+@keyframes intro-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: intro-fade-in 0.4s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: intro-fade-out 0.5s ease-out forwards;
+}
+
+/* Content reveal animation */
+@keyframes intro-reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-reveal {
+  animation: intro-reveal 0.5s ease-out forwards;
+}
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .intro-caret {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .intro-dot-pulse {
+    animation: none;
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  
+  .animate-fade-in {
+    animation: intro-fade-in 0.3s ease-out forwards;
+  }
+  
+  .animate-fade-out {
+    animation: intro-fade-out 0.3s ease-out forwards;
+  }
+  
+  .animate-reveal {
+    animation: intro-fade-in 0.3s ease-out forwards;
+    clip-path: inset(0 0 0 0);
+  }
+}

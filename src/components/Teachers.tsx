@@ -9,6 +9,8 @@ import MrAlvin from "@/assets/Mr Alvin.png";
 import MsElynn from "@/assets/Ms Elynn.png";
 import MsTing from "@/assets/Ms Ting.png";
 import MsLing from "@/assets/Ms Ling.png";
+import MsLilie from "@/assets/Ms Lilie.png";
+import MsSkylar from "@/assets/Ms Skylar.png";
 import BgWood from "@/assets/Bgwood.jpg";
 
 interface Teacher {
@@ -65,6 +67,16 @@ const teachers: Teacher[] = [
     name: 'MR RAIDEN',
     image: MrRaiden,
     subjects: ['Sejarah'],
+  },
+  {
+    name: 'MS LILIE',
+    image: MsLilie,
+    subjects: ['Science'],
+  },
+  {
+    name: 'MS SKYLAR',
+    image: MsSkylar,
+    subjects: ['Science'],
   },
 ];
 
