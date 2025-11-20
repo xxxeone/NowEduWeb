@@ -1,38 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const STORAGE_KEY = 'worldedu_seen_intro';
-const TTL_DAYS = 14;
-const TTL_MS = TTL_DAYS * 24 * 60 * 60 * 1000;
 
-// Migrate from old key if exists
-const migrateOldKey = () => {
-  try {
-    const oldKey = 'nowedu_seen_intro';
-    const oldValue = localStorage.getItem(oldKey);
-    if (oldValue) {
-      localStorage.setItem(STORAGE_KEY, oldValue);
-      localStorage.removeItem(oldKey);
-    }
-  } catch (e) {
-    // Silent fail
-  }
-};
-
+// Check if user has seen intro in this session
 const hasSeenIntro = (): boolean => {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return false;
-    
-    const data = JSON.parse(stored);
-    const now = Date.now();
-    
-    // Check if expired
-    if (now - data.timestamp > TTL_MS) {
-      localStorage.removeItem(STORAGE_KEY);
-      return false;
-    }
-    
-    return data.seen === true;
+    // Change to sessionStorage so it shows once per browser session
+    // instead of once every 14 days
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    return stored === 'true';
   } catch (e) {
     return false;
   }
@@ -40,10 +16,7 @@ const hasSeenIntro = (): boolean => {
 
 const markAsSeen = () => {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      seen: true,
-      timestamp: Date.now()
-    }));
+    sessionStorage.setItem(STORAGE_KEY, 'true');
   } catch (e) {
     // Silent fail
   }
@@ -64,9 +37,6 @@ export const useIntroLoader = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Migrate old key
-    migrateOldKey();
-    
     // Always show in development mode
     const isDev = import.meta.env.DEV;
     
