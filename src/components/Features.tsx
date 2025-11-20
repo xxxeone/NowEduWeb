@@ -85,9 +85,8 @@ const FeatureCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="relative rounded-3xl overflow-hidden cursor-pointer group"
+      className="relative rounded-3xl overflow-hidden cursor-pointer group min-h-[400px] md:min-h-[500px]"
       style={{ 
-        minHeight: "500px",
         perspective: "1000px",
         rotateX: prefersReducedMotion ? 0 : rotateX as any,
         rotateY: prefersReducedMotion ? 0 : rotateY as any,
@@ -187,7 +186,7 @@ const FeatureCard = ({
         />
 
         {/* Content with parallax layers */}
-        <div className="relative z-10 flex flex-col justify-between h-full p-8 md:p-16" style={{ minHeight: "500px" }}>
+        <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-16 min-h-[400px] md:min-h-[500px]">
           {/* Title with word stagger */}
           <div>
             {titleWords.map((word, wordIndex) => (

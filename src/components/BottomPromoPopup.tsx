@@ -110,7 +110,7 @@ const BottomPromoPopup = () => {
                 </button>
 
                 {/* Content - Horizontal Layout */}
-                <div className="relative p-8 md:p-10">
+                <div className="relative p-6 md:p-10">
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     {/* Left: Image */}
                     <div className="flex-shrink-0">

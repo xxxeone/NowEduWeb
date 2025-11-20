@@ -157,7 +157,7 @@ const StudentTestimonials = () => {
                   <img
                     src={student.photo}
                     alt={student.name}
-                    className="w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1100px] transition-all duration-500"
+                    className="w-full max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1100px] transition-all duration-500"
                     style={{ 
                       background: 'transparent',
                       backgroundColor: 'transparent',

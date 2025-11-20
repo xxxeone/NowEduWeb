@@ -127,7 +127,7 @@ const scrollRight = () => {
           {/* Main Title with Split Text Effect */}
           <div className="relative inline-block mb-6">
             <motion.h2 
-              className="text-5xl md:text-7xl lg:text-8xl text-white tracking-tight"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tight"
               style={{ fontFamily: "'QingNiao HuaGuang', 'Noto Sans SC', sans-serif" }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

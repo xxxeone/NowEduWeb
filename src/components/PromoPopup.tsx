@@ -117,10 +117,10 @@ const PromoPopup = () => {
                 </button>
 
                 {/* Content */}
-                <div className="relative p-8">
+                <div className="relative p-6 md:p-8">
                   {/* Logo Image - Larger */}
                   <div className="relative -mb-8">
-                    <div className="w-80 h-80 mx-auto">
+                    <div className="w-full max-w-[20rem] aspect-square mx-auto">
                       <img
                         src={promoImage}
                         alt="SPM冲刺班"
