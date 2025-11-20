@@ -49,6 +49,16 @@ const markAsSeen = () => {
   }
 };
 
+// Expose a global function to clear intro loader for debugging
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).clearIntroLoader = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem('nowedu_seen_intro');
+    console.log('✅ Intro loader cleared! Refresh to see it again.');
+  };
+}
+
 export const useIntroLoader = () => {
   const [shouldShow, setShouldShow] = useState(false);
   const [isReady, setIsReady] = useState(false);
@@ -59,9 +69,17 @@ export const useIntroLoader = () => {
     
     // Always show in development mode
     const isDev = import.meta.env.DEV;
-    const show = isDev || !hasSeenIntro();
-    setShouldShow(show);
-    setIsReady(true);
+    
+    if (isDev) {
+      // In dev mode, always show the loader
+      setShouldShow(true);
+      setIsReady(true);
+    } else {
+      // In production, check if user has seen it
+      const show = !hasSeenIntro();
+      setShouldShow(show);
+      setIsReady(true);
+    }
   }, []);
 
   const finish = useCallback(() => {
