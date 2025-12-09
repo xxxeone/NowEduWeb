@@ -197,7 +197,7 @@ export const IntroLoader = ({ onFinish }: IntroLoaderProps) => {
                 }}
                 className="text-4xl md:text-5xl font-black text-white mb-3 tracking-tight"
               >
-                WORLD EDU
+                NOW EDU
               </motion.div>
               <motion.p
                 animate={{

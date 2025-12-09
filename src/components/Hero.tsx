@@ -90,7 +90,7 @@ const Hero = () => {
                   textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2)'
                 }}
               >
-                World Edu
+                Now Edu
               </span>
             </motion.div>
 
@@ -130,7 +130,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             >
-              World Edu 让你在最短时间内掌握学习方法，轻松提升成绩。
+              Now Edu 让你在最短时间内掌握学习方法，轻松提升成绩。
               <br className="hidden sm:block" />
               <span className="text-sm sm:text-base text-white/70">专业团队 · 科学记忆 · 高效课堂 · 成果显著</span>
             </motion.p>

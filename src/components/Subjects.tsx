@@ -121,7 +121,7 @@ const Subjects = () => {
             className="mb-12"
           >
             <p className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              World Edu · 全科覆盖
+              Now Edu · 全科覆盖
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
               SPM 主要科目

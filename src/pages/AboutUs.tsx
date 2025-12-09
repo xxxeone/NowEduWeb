@@ -234,7 +234,7 @@ const AboutUs = () => {
                 </h2>
                 
                 <p className="text-xl text-gray-400 mb-12 font-light max-w-2xl mx-auto">
-                  加入 World Edu，体验前所未有的高效学习方式。
+                  加入 Now Edu，体验前所未有的高效学习方式。
                 </p>
                 
                 <motion.div 

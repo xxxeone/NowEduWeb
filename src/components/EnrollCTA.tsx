@@ -20,7 +20,7 @@ const EnrollCTA = () => {
               准备好让孩子
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 font-medium max-w-3xl mx-auto px-2">
-              立即预约免费试课，体验 <span className="text-[#03aed2] font-bold">World Edu</span> 独家记忆法的魅力
+              立即预约免费试课，体验 <span className="text-[#03aed2] font-bold">Now Edu</span> 独家记忆法的魅力
             </p>
             
             {/* CTA Button */}

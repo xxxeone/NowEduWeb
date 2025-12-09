@@ -303,7 +303,7 @@ const Features = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-now-navy mb-4">
-            为什么选择 <span className="text-now-teal">World Edu</span>？
+            为什么选择 <span className="text-now-teal">Now Edu</span>？
           </h2>
           <p className="text-lg md:text-xl text-now-navy/70">
             我们不只是补习班，我们是孩子成长路上的最佳伙伴

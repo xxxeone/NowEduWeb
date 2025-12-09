@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/world-edu-logo.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const handleEnroll = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Brand Column */}
           <div className="space-y-4 col-span-1 sm:col-span-2 lg:col-span-1">
-            <img src={logo} alt="World Edu" className="h-32 sm:h-40 w-auto" />
+            <img src={logo} alt="Now Edu" className="h-32 sm:h-40 w-auto" />
             <p className="text-white/80 leading-relaxed">
               专业线上补习中心，专注Form 1-5学生教育，让每个孩子都能赢在起跑点。
             </p>
@@ -80,7 +80,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">开始学习之旅</h3>
             <p className="text-white/80 leading-relaxed">
-              立即加入World Edu，让孩子体验高效有趣的线上学习！
+              立即加入Now Edu，让孩子体验高效有趣的线上学习！
             </p>
             <Button
               onClick={handleEnroll}
@@ -124,7 +124,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm text-center md:text-left">
-              © 2024 World Edu. 版权所有 · 专研教育14年 · 马来西亚线上补习领导品牌
+              © 2024 Now Edu. 版权所有 · 专研教育14年 · 马来西亚线上补习领导品牌
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-white/60 hover:text-white transition-colors">
